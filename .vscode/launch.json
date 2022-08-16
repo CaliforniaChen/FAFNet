@@ -1,0 +1,97 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "--model",
+                // "fafnet",
+                // "faf_ocr",
+                "faf_d",
+                // "faf_test",
+                // "deeplabv3",
+
+                "--dataset",
+                // "sunrgbd",
+                "nyuv2",
+                // "lung",
+
+                "--total_itrs",
+                "41000",
+                "--num_classes",
+                // "37",
+                "40",
+                // "2",
+                "--ignore_index",
+                "255",
+
+                "--enable_vis",
+                "--vis_port",
+                "8097",
+                "--gpu_id",
+                "0",
+
+                "--lr",
+                // "0.005",
+                "0.001",
+                "--lr_policy",
+                // "warmup",
+                // "cos",
+                "poly",
+
+                "--loss_type",
+                // "cross_entropy",
+                "focal_loss",
+                // "ce_aux",
+
+                "--train_crop_size",
+                "464",
+                // "448",
+                "--drop_last",
+               // "--crop_val",
+
+                "--batch_size",
+                "8",
+                "--val_batch_size",
+                "8",
+
+                "--data_root",
+                "./datasets/data/nyudv2_final",
+                // "./datasets/data/sunrgbd",
+                // "./datasets/data/lung",
+
+                "--val_interval",
+                "99",
+
+                // "--enable_apex",
+
+                "--ckpt",
+                // "checkpoints/backups/best_fafnet_nyuv2.pth",
+                // "checkpoints/backups/best_faf_d_sunrgbd.pth",
+                // "checkpoints/best_faf_ocr_nyuv2.pth",
+                // "checkpoints/backups/best_faf_d_nyuv2.pth",
+                "checkpoints/best_faf_d_nyuv2.pth",
+                // "checkpoints/best_faf_d_sunrgbd.pth",
+                // "checkpoints/latest_faf_d_sunrgbd.pth",
+                // "checkpoints/best_fafnet_nyuv2.pth",
+                // "checkpoints/best_deeplabv3_lung.pth",
+                // "--continue_training",
+                "--test_only",
+
+                // "--show_val_results",
+                "--enable_multi_scale_test",
+
+                "--random_seed",
+                "1"
+            ]
+        }
+    ]
+}
